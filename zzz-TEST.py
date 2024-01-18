@@ -1,11 +1,15 @@
-x = [1,2,5,4,3]
-y = [1,4,25,16,9]
+def test(d):
+    seen = []
+    inverted = {}
+    for i in d:
+        if d[i] in seen:
+            pass
+        else:
+            if d[i] in inverted:
+                del inverted[d[i]]
+                seen.append(d[i])
+            else:
+                inverted[d[i]] = i
 
-z = []
-
-for i in range(len(x)):
-    z += [[[y[i]/x[i]], [i]]]
-
-print(z)
-z.sort()
-print(z)
+    return inverted
+print(test({'one':1, 'two':2, 'uno':1, 'dos':2, 'three':3}))
